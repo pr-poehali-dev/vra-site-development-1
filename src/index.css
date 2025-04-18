@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --background: 260 100% 99%;
-    --foreground: 260 70% 10%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 300 20% 98%;
-    --card-foreground: 260 70% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 260 70% 10%;
+    --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 260 100% 74%;
     --primary-foreground: 0 0% 100%;
@@ -19,40 +19,31 @@
     --secondary: 240 100% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 300 20% 95%;
-    --muted-foreground: 260 60% 40%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 300 100% 90%;
-    --accent-foreground: 240 70% 30%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 260 20% 85%;
-    --input: 260 20% 85%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 240 100% 50%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 240 100% 3%;
-    --sidebar-foreground: 260 100% 94%;
-    --sidebar-primary: 260 100% 74%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 40% 24%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 240 40% 24%;
-    --sidebar-ring: 240 100% 50%;
   }
 
   .dark {
-    --background: 240 70% 6%;
-    --foreground: 260 100% 94%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 240 60% 10%;
-    --card-foreground: 0 0% 100%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 240 70% 7%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 260 100% 74%;
     --primary-foreground: 0 0% 100%;
@@ -60,17 +51,17 @@
     --secondary: 240 100% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 40% 24%;
-    --muted-foreground: 260 80% 90%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 240 70% 20%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 240 40% 24%;
-    --input: 240 40% 24%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
     --ring: 260 100% 74%;
   }
 }
@@ -82,61 +73,21 @@
 
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
+    font-family: 'Inter', sans-serif;
   }
 }
 
 @layer components {
-  .vra-gradient-1 {
-    background: linear-gradient(to right, #977DFF, #F2E6EE);
-  }
-  
-  .vra-gradient-2 {
-    background: linear-gradient(to right, #0033FF, #977DFF, #FFCCF2);
-  }
-  
-  .vra-gradient-3 {
-    background: linear-gradient(to right, #0600AB, #0033FF, #977DFF);
-  }
-  
-  .vra-gradient-4 {
-    background: linear-gradient(to right, #00033D, #0600AB, #0033FF);
-  }
-
-  .vra-glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
-  }
-
-  .vra-text-gradient {
-    @apply text-transparent bg-clip-text vra-gradient-3;
-  }
-
   .vra-button {
     @apply rounded-lg px-4 py-2 font-medium transition-all duration-300 
            bg-vra-purple hover:bg-vra-blue text-white
-           shadow-[0_0_15px_rgba(151,125,255,0.5)] hover:shadow-[0_0_20px_rgba(0,51,255,0.7)]
+           shadow-[0_4px_10px_rgba(151,125,255,0.3)] hover:shadow-[0_6px_15px_rgba(0,51,255,0.4)]
            relative overflow-hidden;
-  }
-
-  .vra-button::before {
-    content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-300 vra-gradient-2;
-    mix-blend-mode: overlay;
-  }
-
-  .vra-button:hover::before {
-    @apply opacity-100;
   }
   
   .vra-card {
-    @apply rounded-xl p-6 bg-white/10 backdrop-blur-md
-           border border-white/20 transition-all duration-300
-           hover:border-vra-purple/50 hover:shadow-[0_0_20px_rgba(151,125,255,0.3)];
-  }
-
-  .vra-input {
-    @apply rounded-lg border border-vra-purple/30 bg-white/5 backdrop-blur-sm
-           px-4 py-2 focus:outline-none focus:ring-2 focus:ring-vra-purple/50
-           placeholder:text-vra-purple/50 text-vra-purple transition-all duration-300;
+    @apply rounded-xl p-6 bg-white shadow-md border border-gray-100
+           transition-all duration-300 hover:shadow-lg
+           hover:border-vra-purple/50;
   }
 }

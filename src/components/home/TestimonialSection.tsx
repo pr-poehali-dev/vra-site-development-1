@@ -43,17 +43,13 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <section className="py-20 relative">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black/20 to-transparent"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 vra-text-gradient">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-vra-darkBlue">
             Отзывы о VRA
           </h2>
-          <p className="text-white/70">
+          <p className="text-vra-darkBlue/70">
             Что говорят студенты, родители и преподаватели о нашем уникальном подходе к образованию
           </p>
         </div>
@@ -68,9 +64,9 @@ export default function TestimonialSection() {
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
-                <Card className="vra-card h-full border-none">
+                <Card className="bg-white shadow-md border border-gray-100 h-full">
                   <CardContent className="flex flex-col h-full p-6">
-                    <blockquote className="text-white/80 italic mb-6 flex-grow">
+                    <blockquote className="text-vra-darkBlue/80 italic mb-6 flex-grow">
                       "{testimonial.quote}"
                     </blockquote>
                     <div className="flex items-center mt-4">
@@ -81,8 +77,8 @@ export default function TestimonialSection() {
                         </AvatarFallback>
                       </Avatar>
                       <div className="ml-4">
-                        <div className="font-medium text-vra-purple">{testimonial.name}</div>
-                        <div className="text-white/60 text-sm">{testimonial.role}</div>
+                        <div className="font-medium text-vra-darkBlue">{testimonial.name}</div>
+                        <div className="text-vra-darkBlue/60 text-sm">{testimonial.role}</div>
                       </div>
                     </div>
                   </CardContent>

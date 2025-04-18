@@ -3,7 +3,7 @@ import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon, Mail, Phone, Map
 
 export default function Footer() {
   return (
-    <footer className="bg-black/50 backdrop-blur-lg border-t border-white/10 pt-16 pb-8 text-white">
+    <footer className="bg-vra-darkBlue text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-full vra-gradient-2 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">VR</span>
               </div>
-              <span className="text-xl font-bold vra-text-gradient">VRA</span>
+              <span className="text-xl font-bold text-white">VRA</span>
             </Link>
             <p className="text-white/70 mb-4">
               Virtual Reality Academy — образовательное учреждение нового поколения с применением VR/AR технологий.
@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4 vra-text-gradient">Образование</h3>
+            <h3 className="text-lg font-semibold mb-4 text-vra-purple">Образование</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/programs#school" className="text-white/70 hover:text-vra-purple transition-colors">
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4 vra-text-gradient">Ссылки</h3>
+            <h3 className="text-lg font-semibold mb-4 text-vra-purple">Ссылки</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-white/70 hover:text-vra-purple transition-colors">
@@ -85,7 +85,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4 vra-text-gradient">Контакты</h3>
+            <h3 className="text-lg font-semibold mb-4 text-vra-purple">Контакты</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-vra-purple mt-1" />

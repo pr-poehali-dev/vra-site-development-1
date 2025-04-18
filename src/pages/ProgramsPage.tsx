@@ -78,25 +78,16 @@ export default function ProgramsPage() {
   };
   
   return (
-    <div className="min-h-screen bg-black text-white relative">
-      {/* Background gradient */}
-      <div className="fixed inset-0 z-[-1]">
-        <div className="absolute inset-0 bg-gradient-to-b from-vra-darkestBlue via-vra-darkBlue to-black"></div>
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_#977DFF,_transparent_40%)]"></div>
-          <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,_#0033FF,_transparent_40%)]"></div>
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-white">
       <Navbar />
       
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <header className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="vra-text-gradient">Образовательные программы</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-vra-darkBlue">
+              Образовательные программы
             </h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <p className="text-xl text-vra-darkBlue/80 max-w-3xl mx-auto">
               В VRA вы можете получить полный цикл образования — от начальной школы до высшего учебного заведения
             </p>
           </header>
@@ -105,14 +96,14 @@ export default function ProgramsPage() {
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-10">
               <TabsTrigger 
                 value="school" 
-                className="data-[state=active]:vra-gradient-2 data-[state=active]:text-white text-vra-purple"
+                className="data-[state=active]:bg-vra-purple data-[state=active]:text-white text-vra-darkBlue"
               >
                 <Book className="mr-2 h-4 w-4" />
                 Школа
               </TabsTrigger>
               <TabsTrigger 
                 value="university" 
-                className="data-[state=active]:vra-gradient-2 data-[state=active]:text-white text-vra-purple"
+                className="data-[state=active]:bg-vra-purple data-[state=active]:text-white text-vra-darkBlue"
               >
                 <GraduationCap className="mr-2 h-4 w-4" />
                 Высшее образование
@@ -124,30 +115,32 @@ export default function ProgramsPage() {
                 {schoolPrograms.map((program, index) => (
                   <div 
                     key={index}
-                    className="vra-card overflow-hidden transition-all duration-300"
+                    className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300"
                   >
-                    <div className="flex flex-col md:flex-row gap-6">
-                      <div className="md:w-1/3 aspect-video rounded-lg overflow-hidden">
-                        <img 
-                          src={program.image} 
-                          alt={program.title}
-                          className="w-full h-full object-cover"
-                        />
+                    <div className="flex flex-col md:flex-row">
+                      <div className="md:w-1/3 p-4">
+                        <div className="aspect-video rounded-lg overflow-hidden">
+                          <img 
+                            src={program.image} 
+                            alt={program.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                       </div>
-                      <div className="md:w-2/3">
-                        <h3 className="text-2xl font-semibold mb-3 text-vra-purple">{program.title}</h3>
-                        <p className="text-white/80 mb-4">{program.description}</p>
+                      <div className="md:w-2/3 p-6">
+                        <h3 className="text-2xl font-semibold mb-3 text-vra-darkBlue">{program.title}</h3>
+                        <p className="text-vra-darkBlue/80 mb-4">{program.description}</p>
                         
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-                          <div className="flex items-center text-white/70 text-sm">
+                          <div className="flex items-center text-vra-darkBlue/70 text-sm">
                             <Clock size={16} className="mr-2 text-vra-blue" />
                             Длительность: {program.duration}
                           </div>
-                          <div className="flex items-center text-white/70 text-sm">
+                          <div className="flex items-center text-vra-darkBlue/70 text-sm">
                             <User size={16} className="mr-2 text-vra-blue" />
                             Возраст: {program.age}
                           </div>
-                          <div className="flex items-center text-white/70 text-sm">
+                          <div className="flex items-center text-vra-darkBlue/70 text-sm">
                             <Calendar size={16} className="mr-2 text-vra-blue" />
                             Набор: ежегодно
                           </div>
@@ -165,12 +158,12 @@ export default function ProgramsPage() {
                     </div>
                     
                     {expandedSchool === index && (
-                      <div className="mt-6 pt-6 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="p-6 pt-0 mt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                           <h4 className="text-lg font-medium mb-3 text-vra-blue">Предметы</h4>
                           <ul className="space-y-1">
                             {program.subjects.map((subject, idx) => (
-                              <li key={idx} className="text-white/70 flex items-center">
+                              <li key={idx} className="text-vra-darkBlue/70 flex items-center">
                                 <span className="w-2 h-2 rounded-full bg-vra-purple mr-2"></span>
                                 {subject}
                               </li>
@@ -181,7 +174,7 @@ export default function ProgramsPage() {
                           <h4 className="text-lg font-medium mb-3 text-vra-blue">Особенности программы</h4>
                           <ul className="space-y-1">
                             {program.features.map((feature, idx) => (
-                              <li key={idx} className="text-white/70 flex items-center">
+                              <li key={idx} className="text-vra-darkBlue/70 flex items-center">
                                 <span className="w-2 h-2 rounded-full bg-vra-purple mr-2"></span>
                                 {feature}
                               </li>
@@ -200,30 +193,32 @@ export default function ProgramsPage() {
                 {universityPrograms.map((program, index) => (
                   <div 
                     key={index}
-                    className="vra-card overflow-hidden transition-all duration-300"
+                    className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300"
                   >
-                    <div className="flex flex-col md:flex-row gap-6">
-                      <div className="md:w-1/3 aspect-video rounded-lg overflow-hidden">
-                        <img 
-                          src={program.image} 
-                          alt={program.title}
-                          className="w-full h-full object-cover"
-                        />
+                    <div className="flex flex-col md:flex-row">
+                      <div className="md:w-1/3 p-4">
+                        <div className="aspect-video rounded-lg overflow-hidden">
+                          <img 
+                            src={program.image} 
+                            alt={program.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                       </div>
-                      <div className="md:w-2/3">
-                        <h3 className="text-2xl font-semibold mb-3 text-vra-purple">{program.title}</h3>
-                        <p className="text-white/80 mb-4">{program.description}</p>
+                      <div className="md:w-2/3 p-6">
+                        <h3 className="text-2xl font-semibold mb-3 text-vra-darkBlue">{program.title}</h3>
+                        <p className="text-vra-darkBlue/80 mb-4">{program.description}</p>
                         
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-                          <div className="flex items-center text-white/70 text-sm">
+                          <div className="flex items-center text-vra-darkBlue/70 text-sm">
                             <Clock size={16} className="mr-2 text-vra-blue" />
                             Длительность: {program.duration}
                           </div>
-                          <div className="flex items-center text-white/70 text-sm">
+                          <div className="flex items-center text-vra-darkBlue/70 text-sm">
                             <GraduationCap size={16} className="mr-2 text-vra-blue" />
                             Степень: {program.degree}
                           </div>
-                          <div className="flex items-center text-white/70 text-sm">
+                          <div className="flex items-center text-vra-darkBlue/70 text-sm">
                             <Calendar size={16} className="mr-2 text-vra-blue" />
                             Набор: ежегодно
                           </div>
@@ -241,12 +236,12 @@ export default function ProgramsPage() {
                     </div>
                     
                     {expandedUniversity === index && (
-                      <div className="mt-6 pt-6 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="p-6 pt-0 mt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                           <h4 className="text-lg font-medium mb-3 text-vra-blue">Основные дисциплины</h4>
                           <ul className="space-y-1">
                             {program.subjects.map((subject, idx) => (
-                              <li key={idx} className="text-white/70 flex items-center">
+                              <li key={idx} className="text-vra-darkBlue/70 flex items-center">
                                 <span className="w-2 h-2 rounded-full bg-vra-purple mr-2"></span>
                                 {subject}
                               </li>
@@ -257,7 +252,7 @@ export default function ProgramsPage() {
                           <h4 className="text-lg font-medium mb-3 text-vra-blue">Особенности программы</h4>
                           <ul className="space-y-1">
                             {program.features.map((feature, idx) => (
-                              <li key={idx} className="text-white/70 flex items-center">
+                              <li key={idx} className="text-vra-darkBlue/70 flex items-center">
                                 <span className="w-2 h-2 rounded-full bg-vra-purple mr-2"></span>
                                 {feature}
                               </li>
